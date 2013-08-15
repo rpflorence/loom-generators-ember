@@ -1,7 +1,6 @@
 var {{objectName}} = DS.Model.extend({
 {{#each fields}}
-  {{name}}: DS.attr('{{type}}'){{comma}}
-{{/each}}
+  {{name}}: DS.attr('{{type}}'){{comma}}{{/each}}
 });
 
 export default {{objectName}};
