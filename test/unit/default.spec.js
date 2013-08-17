@@ -47,12 +47,14 @@ describe('default generator', function() {
   describe('template', function() {
     it('finds the right template for appendable object types', function() {
       var env = {name: 'controller'};
-      generator.template(env).should.equal('app/controllers/controller_controller.js.hbs');
+      var expected = ['app/controllers/controller_controller.js.hbs', 'tests/controllers/controller_controller.test.js.hbs']
+      generator.templates(env).should.eql(expected);
     });
 
     it('finds the right template for non-appendable object types', function() {
       var env = {name: 'model'};
-      generator.template(env).should.equal('app/models/model.js.hbs');
+      var expected = ['app/models/model.js.hbs', 'tests/models/model.test.js.hbs']
+      generator.templates(env).should.eql(expected);
     });
   });
 });

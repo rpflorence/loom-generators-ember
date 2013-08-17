@@ -11,11 +11,11 @@ generator.before = function(env) {
   }
 };
 
-generator.template = function(env) {
+generator.templates = function(env) {
   if (isComponent(env.rawName)) {
-    return 'app/templates/components/component.hbs.hbs';
+    return ['app/templates/components/component.hbs.hbs'];
   } else {
-    return 'app/templates/template.hbs.hbs';
+    return ['app/templates/template.hbs.hbs'];
   }
 };
 

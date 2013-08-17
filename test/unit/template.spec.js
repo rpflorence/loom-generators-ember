@@ -16,13 +16,13 @@ describe('template generator', function() {
 
   describe('template', function() {
     it('returns the component template for components', function() {
-      var template = generator.template({rawName: 'components/x-foo'});
-      template.should.equal('app/templates/components/component.hbs.hbs');
+      var template = generator.templates({rawName: 'components/x-foo'});
+      template.should.eql(['app/templates/components/component.hbs.hbs']);
     });
 
     it('returns the template template for non-components', function() {
-      var template = generator.template({rawName: 'foo'});
-      template.should.equal('app/templates/template.hbs.hbs');
+      var template = generator.templates({rawName: 'foo'});
+      template.should.eql(['app/templates/template.hbs.hbs']);
     });
   });
 
@@ -30,16 +30,16 @@ describe('template generator', function() {
 
     it('saves component templates to the right place', function() {
       var env = { args: ['components/x_foo'], rawName: 'components/x-foo', name: 'template'};
-      var template = generator.template(env);
+      var template = generator.templates(env);
       var path = generator.savePath(template, env);
       path.should.equal('app/templates/components/x-foo.hbs');
     });
 
     it('saves templates to the right place', function() {
       var env = { args: ['foo_bar'], rawName: 'foo_bar', name: 'template'};
-      var template = generator.template(env);
+      var template = generator.templates(env);
       var path = generator.savePath(template, env);
-      path.should.equal('app/templates/foo_bar.hbs');
+      path.should.eql('app/templates/foo_bar.hbs');
     });
   });
 });

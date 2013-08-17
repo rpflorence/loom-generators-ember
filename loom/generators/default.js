@@ -25,10 +25,14 @@ generator.present = function(name) {
   };
 };
 
-generator.template = function(env) {
+generator.templates = function(env) {
   var plural = inflector.pluralize(env.name);
   var append = appendable(env.name) ? '_'+env.name : '';
-  return 'app/'+plural+'/'+env.name+append+'.js.hbs';
+
+  return [
+    'app/'+plural+'/'+env.name+append+'.js.hbs',
+    'tests/'+plural+'/'+env.name+append+'.test.js.hbs',
+  ]
 };
 
 function appendable(generatorName) {
