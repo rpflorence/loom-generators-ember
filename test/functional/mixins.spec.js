@@ -6,6 +6,7 @@ describe('mixin', function() {
   it('renders the template correctly', function() {
     var locals = { objectName: 'TacoCartable' };
     var expected = render('app/mixins/mixin.js.hbs', locals);
+    expected += render('tests/mixins/mixin.test.js.hbs', locals);
     loom('-sq mixin taco_cartable').out.should.equal(expected);
   });
 

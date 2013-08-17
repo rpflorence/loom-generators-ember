@@ -12,6 +12,7 @@ describe('model', function() {
       ]
     };
     var expected = render('app/models/model.js.hbs', locals);
+    expected += render('tests/models/model.test.js.hbs', locals);
     loom('-sq model user name:string age:number').out.should.equal(expected);
   });
 
