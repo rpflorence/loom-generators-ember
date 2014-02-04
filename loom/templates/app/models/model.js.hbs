@@ -2,8 +2,7 @@ var Ember = require('ember');
 
 var {{objectName}} = DS.Model.extend({
 {{#each fields}}
-  {{name}}: DS.attr('{{type}}'){{comma}}
-{{/each}}
+  {{name}}: DS.attr('{{type}}'){{comma}}{{/each}}
 });
 
 module.exports = {{objectName}};
