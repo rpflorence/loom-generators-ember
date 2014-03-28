@@ -8,6 +8,7 @@
     "watch-test": "node_modules/.bin/mocha -w --require should --reporter list --ui bdd $(find test -name \"*.spec.js\")"
   },
   "author": "Ryan Florence",
+  "repository": "https://github.com/rpflorence/loom-generators-ember",
   "license": "MIT",
   "peerDependencies": {
     "loom": "3.x.x"
