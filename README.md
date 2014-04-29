@@ -7,7 +7,7 @@ objects.
 Installation
 ------------
 
-`npm install loom-generators-ember --save`
+`npm install loom-generators-ember-appkit --save`
 
 The `--save` is important, loom needs to read your package.json to find
 the generators.
@@ -25,6 +25,9 @@ generate route index
 generate template profile
 generate view index
 ```
+
+We also support coffeescript templates by passing a `coffee:true` parameter
+to any of the generators.
 
 That's pretty much everything.
 

@@ -19,18 +19,27 @@ generator.before = function(next, env) {
 generator.present = function(next, env) {
   var params = env.params;
   var name = env.args[0];
+  var safeName = name;
   if (appendable(env.name)) {
     name += '-'+env.name;
   }
   next({
     objectName: inflector.objectify(name),
-    params: params
+    params: params,
+    dasherizedObjectName: inflector.dasherize(safeName),
+    humanizedObjectName: inflector.humanize(name)
   });
 };
 
 generator.template = function(next, env) {
-  var plural = inflector.pluralize(env.name);
-  next(app+'/'+plural+'/'+env.name+'.js.hbs');
+  var plural = inflector.pluralize(env.name),
+      extension = 'js';
+
+  if(env.params.coffee === 'true') {
+    extension = 'coffee';
+  }
+
+  next(app+'/'+plural+'/'+env.name+'.'+extension+'.hbs');
 };
 
 function appendable(generatorName) {
